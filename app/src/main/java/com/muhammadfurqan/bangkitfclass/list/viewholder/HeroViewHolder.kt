@@ -1,7 +1,8 @@
 package com.muhammadfurqan.bangkitfclass.list.viewholder
 
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.muhammadfurqan.bangkitfclass.BaseModel
+import com.muhammadfurqan.bangkitfclass.BaseViewHolder
 import com.muhammadfurqan.bangkitfclass.databinding.ItemHeroBinding
 import com.muhammadfurqan.bangkitfclass.list.model.NationalHero
 
@@ -11,7 +12,7 @@ import com.muhammadfurqan.bangkitfclass.list.model.NationalHero
 class HeroViewHolder(
     private val binding: ItemHeroBinding,
     private val listener: Listener
-) : RecyclerView.ViewHolder(binding.root) {
+) : BaseViewHolder(binding.root) {
 
 //    private var civHero: CircleImageView
 //    private var tvHeroName: AppCompatTextView
@@ -25,16 +26,17 @@ class HeroViewHolder(
 //        }
 //    }
 
-    fun bind(element: NationalHero) {
-        binding.tvHeroName.text = element.name
-        binding.tvHeroDescription.text = element.description
+    override fun bind(element: BaseModel) {
+        val data = element as NationalHero
+        binding.tvHeroName.text = data.name
+        binding.tvHeroDescription.text = data.description
 
         Glide.with(itemView.context)
-            .load(element.imageUrl)
+            .load(data.imageUrl)
             .into(binding.civHero)
 
         itemView.setOnClickListener {
-            listener.onClick(element)
+            listener.onClick(data)
         }
     }
 

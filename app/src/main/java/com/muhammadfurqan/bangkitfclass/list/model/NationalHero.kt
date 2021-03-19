@@ -1,6 +1,8 @@
 package com.muhammadfurqan.bangkitfclass.list.model
 
 import android.os.Parcelable
+import com.muhammadfurqan.bangkitfclass.BaseModel
+import com.muhammadfurqan.bangkitfclass.fragment.adapter.FragmentAdapter
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -11,4 +13,6 @@ data class NationalHero(
     val name: String,
     val description: String,
     val imageUrl: String
-) : Parcelable
+) : BaseModel(), Parcelable {
+    override fun getViewType(): Int = FragmentAdapter.MAIN_HERO_TYPE
+}

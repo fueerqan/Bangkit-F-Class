@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.muhammadfurqan.bangkitfclass.BaseModel
 import com.muhammadfurqan.bangkitfclass.DummyData
 import com.muhammadfurqan.bangkitfclass.R
 import com.muhammadfurqan.bangkitfclass.fragment.adapter.FragmentAdapter
+import com.muhammadfurqan.bangkitfclass.fragment.model.TitleModel
 import com.muhammadfurqan.bangkitfclass.list.model.NationalHero
 import com.muhammadfurqan.bangkitfclass.list.viewholder.HeroViewHolder
 
@@ -48,7 +50,13 @@ class HeroFragment : Fragment(), HeroViewHolder.Listener {
     }
 
     private fun setupRecyclerView() {
-        adapter = FragmentAdapter(DummyData.HERO_DATA, this)
+
+        val data = arrayListOf<BaseModel>()
+        data.add(TitleModel("Ini Contoh Title"))
+        data.addAll(DummyData.HERO_DATA)
+        data.add(TitleModel("This is the last title"))
+
+        adapter = FragmentAdapter(data, this)
 
         rvHeroFragmentList.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
