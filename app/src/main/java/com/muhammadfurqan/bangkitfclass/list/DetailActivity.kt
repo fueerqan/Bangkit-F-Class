@@ -20,9 +20,20 @@ class DetailActivity : AppCompatActivity() {
 
         tvHeroName = findViewById(R.id.tv_detail_hero_name)
 
-        hero = intent.getParcelableExtra(ListActivity.EXTRA_HERO)
-            ?: NationalHero("", "", "")
+        hero = if (savedInstanceState != null) {
+            savedInstanceState.getParcelable(ListActivity.EXTRA_HERO)
+                ?: NationalHero("", "", "")
+        } else {
+            intent.getParcelableExtra(ListActivity.EXTRA_HERO)
+                ?: NationalHero("", "", "")
+        }
         tvHeroName.text = hero.name
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putParcelable(ListActivity.EXTRA_HERO, hero)
     }
 
 }
