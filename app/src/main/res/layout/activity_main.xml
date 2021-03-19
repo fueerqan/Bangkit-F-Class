@@ -14,4 +14,11 @@
         android:text="@string/btn_list_label"
         android:textAllCaps="false" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_to_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_fragment_label"
+        android:textAllCaps="false" />
+
 </LinearLayout>
