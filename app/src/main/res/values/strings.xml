@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bangkit F Class</string>
+    <string name="btn_list_label">Go To List</string>
 </resources>
