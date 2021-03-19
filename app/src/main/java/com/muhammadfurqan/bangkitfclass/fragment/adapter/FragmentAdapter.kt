@@ -3,6 +3,7 @@ package com.muhammadfurqan.bangkitfclass.fragment.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.muhammadfurqan.bangkitfclass.databinding.ItemHeroBinding
 import com.muhammadfurqan.bangkitfclass.list.model.NationalHero
 import com.muhammadfurqan.bangkitfclass.list.viewholder.HeroViewHolder
 
@@ -16,8 +17,7 @@ class FragmentAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder =
         HeroViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(HeroViewHolder.LAYOUT, parent, false),
+            ItemHeroBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             listener
         )
 

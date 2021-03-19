@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.muhammadfurqan.bangkitfclass.DummyData
-import com.muhammadfurqan.bangkitfclass.R
+import com.muhammadfurqan.bangkitfclass.databinding.ActivityListBinding
 import com.muhammadfurqan.bangkitfclass.list.adapter.HeroAdapter
 import com.muhammadfurqan.bangkitfclass.list.model.NationalHero
 import com.muhammadfurqan.bangkitfclass.list.viewholder.HeroViewHolder
@@ -16,15 +16,15 @@ import com.muhammadfurqan.bangkitfclass.list.viewholder.HeroViewHolder
  */
 class ListActivity : AppCompatActivity(), HeroViewHolder.Listener {
 
-    private lateinit var rvHeroList: RecyclerView
+    private lateinit var binding: ActivityListBinding
 
     private lateinit var adapter: HeroAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
+        binding = ActivityListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        rvHeroList = findViewById(R.id.rv_hero_list)
         setupRecyclerView()
     }
 
@@ -38,8 +38,8 @@ class ListActivity : AppCompatActivity(), HeroViewHolder.Listener {
     private fun setupRecyclerView() {
         adapter = HeroAdapter(DummyData.HERO_DATA, this)
 
-        rvHeroList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        rvHeroList.adapter = adapter
+        binding.rvHeroList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding.rvHeroList.adapter = adapter
     }
 
     companion object {
