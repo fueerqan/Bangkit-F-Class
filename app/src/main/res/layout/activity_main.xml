@@ -21,4 +21,11 @@
         android:text="@string/btn_fragment_label"
         android:textAllCaps="false" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_to_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_background_label"
+        android:textAllCaps="false" />
+
 </LinearLayout>
