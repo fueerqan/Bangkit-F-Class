@@ -28,4 +28,11 @@
         android:text="@string/btn_background_label"
         android:textAllCaps="false" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_to_network"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_network_label"
+        android:textAllCaps="false" />
+
 </LinearLayout>

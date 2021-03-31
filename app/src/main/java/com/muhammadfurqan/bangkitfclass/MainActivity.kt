@@ -7,12 +7,14 @@ import androidx.appcompat.widget.AppCompatButton
 import com.muhammadfurqan.bangkitfclass.backgroundprocess.BackgroundProcessActivity
 import com.muhammadfurqan.bangkitfclass.fragment.FragmentActivity
 import com.muhammadfurqan.bangkitfclass.list.ListActivity
+import com.muhammadfurqan.bangkitfclass.network.NetworkActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnToList: AppCompatButton
     private lateinit var btnToFragment: AppCompatButton
     private lateinit var btnToBackground: AppCompatButton
+    private lateinit var btnToNetwork: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         btnToBackground = findViewById(R.id.btn_to_background)
         btnToBackground.setOnClickListener { navigateToBackground() }
+
+        btnToNetwork = findViewById(R.id.btn_to_network)
+        btnToNetwork.setOnClickListener { navigateToNetwork() }
     }
 
     private fun navigateToList() {
@@ -43,6 +48,12 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToBackground() {
         startActivity(
             Intent(this, BackgroundProcessActivity::class.java)
+        )
+    }
+
+    private fun navigateToNetwork() {
+        startActivity(
+            Intent(this, NetworkActivity::class.java)
         )
     }
 }

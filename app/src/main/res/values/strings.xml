@@ -3,6 +3,8 @@
     <string name="btn_list_label">Go To List</string>
     <string name="btn_fragment_label">Go To Fragment</string>
     <string name="btn_background_label">Go To Background</string>
+    <string name="btn_network_label">Go To Network</string>
+
     <string name="run_background_task_handler_label">Run Background Task Handler</string>
     <string name="run_background_task_coroutine_label">Run Background Task Coroutine</string>
 </resources>

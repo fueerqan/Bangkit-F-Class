@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BangkitFClass">
-        <activity android:name=".backgroundprocess.BackgroundProcessActivity"></activity>
+        <activity android:name=".network.NetworkActivity"></activity>
+        <activity android:name=".backgroundprocess.BackgroundProcessActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
