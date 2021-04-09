@@ -8,6 +8,7 @@ import com.muhammadfurqan.bangkitfclass.backgroundprocess.BackgroundProcessActiv
 import com.muhammadfurqan.bangkitfclass.fragment.FragmentActivity
 import com.muhammadfurqan.bangkitfclass.list.ListActivity
 import com.muhammadfurqan.bangkitfclass.network.NetworkActivity
+import com.muhammadfurqan.bangkitfclass.shared_preferences.SharedPreferencesActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnToFragment: AppCompatButton
     private lateinit var btnToBackground: AppCompatButton
     private lateinit var btnToNetwork: AppCompatButton
+    private lateinit var btnToSharedPref: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         btnToNetwork = findViewById(R.id.btn_to_network)
         btnToNetwork.setOnClickListener { navigateToNetwork() }
+
+        btnToSharedPref = findViewById(R.id.btn_to_shared_pref)
+        btnToSharedPref.setOnClickListener { navigateToSharedPreferences() }
     }
 
     private fun navigateToList() {
@@ -54,6 +59,12 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToNetwork() {
         startActivity(
             Intent(this, NetworkActivity::class.java)
+        )
+    }
+
+    private fun navigateToSharedPreferences() {
+        startActivity(
+            Intent(this, SharedPreferencesActivity::class.java)
         )
     }
 }
