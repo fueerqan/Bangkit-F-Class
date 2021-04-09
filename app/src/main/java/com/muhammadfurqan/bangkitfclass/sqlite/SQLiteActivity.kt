@@ -1,14 +1,17 @@
 package com.muhammadfurqan.bangkitfclass.sqlite
 
+import android.app.Activity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.RecyclerView
 import com.muhammadfurqan.bangkitfclass.R
-import com.muhammadfurqan.bangkitfclass.sqlite.db.BookDatabaseManager
-import kotlinx.coroutines.launch
 
 /**
  *
@@ -35,47 +38,45 @@ class SQLiteActivity : AppCompatActivity() {
 
     private lateinit var etBookName: AppCompatEditText
     private lateinit var btnAdd: AppCompatButton
-    private lateinit var btnRead: AppCompatButton
-
-    private val bookDb: BookDatabaseManager by lazy {
-        BookDatabaseManager(this)
-    }
+    private lateinit var rvBook: RecyclerView
+    private val bookVm: BookViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sqlite)
-
+        bookVm.initDB(this)
+        bookVm.getAllBooks()
         etBookName = findViewById(R.id.et_book_name)
         btnAdd = findViewById(R.id.btn_add)
-        btnRead = findViewById(R.id.btn_read)
+        rvBook = findViewById(R.id.rv_book_list)
 
+        bookVm.books.observe(this, { populateBooks(it) })
         btnAdd.setOnClickListener {
             onAdd()
-        }
-
-        btnRead.setOnClickListener {
-            onRead()
+            hideKeyboard(it)
         }
     }
 
     private fun onAdd() {
         val bookName = etBookName.text.toString()
         if (bookName.isNotEmpty()) {
-            lifecycleScope.launch {
-                bookDb.saveData(bookName)
-            }
+            bookVm.addBook(bookName)
             etBookName.setText("")
         } else {
             Toast.makeText(this, "Please fill in the book name", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun onRead() {
-        val bookList = bookDb.getData()
-        val bookListString = bookList.joinToString(separator = "\n") {
-            "Book ${it.id} is ${it.name}"
+    private fun populateBooks(bookList: List<BookModel>) {
+        rvBook.apply {
+            itemAnimator = DefaultItemAnimator()
+            adapter = BookAdapter(bookList, bookVm)
         }
-        Toast.makeText(this, bookListString, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun Activity.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.applicationWindowToken, 0)
     }
 
 }

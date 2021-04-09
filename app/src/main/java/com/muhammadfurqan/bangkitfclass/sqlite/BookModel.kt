@@ -5,5 +5,5 @@ package com.muhammadfurqan.bangkitfclass.sqlite
  */
 data class BookModel(
     val id: Int,
-    val name: String
+    var name: String
 )
