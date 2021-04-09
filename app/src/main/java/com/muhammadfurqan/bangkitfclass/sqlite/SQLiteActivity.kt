@@ -10,6 +10,25 @@ import com.muhammadfurqan.bangkitfclass.R
 import com.muhammadfurqan.bangkitfclass.sqlite.db.BookDatabaseManager
 import kotlinx.coroutines.launch
 
+/**
+ *
+ * Step :
+ * 1. Fork our Repository (https://github.com/fueerqan/Bangkit-F-Class)
+ *
+ * CHALLENGE :
+ * 1. Recycler View to show all of the data, previously we only show them in toast
+ * 2. Add Function to edit the books data for each item in your Recycler View Items
+ * 3. Add Function to delete the books data for each item in your Recycler View Items
+ * 4. Notify Data Changes for you Recycler View
+ *
+ * Reward : Rp20.000 Go-Pay / OVO
+ * Limit : No Limit Person
+ * Dateline : 23.00
+ *
+ * Submit to https://forms.gle/CytSQSyQDJeivpkd7
+ *
+ */
+
 class SQLiteActivity : AppCompatActivity() {
 
     private lateinit var etBookName: AppCompatEditText
