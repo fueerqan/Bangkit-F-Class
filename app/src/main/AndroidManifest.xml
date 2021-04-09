@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BangkitFClass">
-        <activity android:name=".shared_preferences.SharedPreferencesActivity"></activity>
+        <activity android:name=".sqlite.SQLiteActivity"></activity>
+        <activity android:name=".shared_preferences.SharedPreferencesActivity" />
         <activity android:name=".network.NetworkActivity" />
         <activity android:name=".backgroundprocess.BackgroundProcessActivity" />
         <activity android:name=".MainActivity">

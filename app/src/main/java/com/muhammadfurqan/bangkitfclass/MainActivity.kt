@@ -9,6 +9,7 @@ import com.muhammadfurqan.bangkitfclass.fragment.FragmentActivity
 import com.muhammadfurqan.bangkitfclass.list.ListActivity
 import com.muhammadfurqan.bangkitfclass.network.NetworkActivity
 import com.muhammadfurqan.bangkitfclass.shared_preferences.SharedPreferencesActivity
+import com.muhammadfurqan.bangkitfclass.sqlite.SQLiteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnToBackground: AppCompatButton
     private lateinit var btnToNetwork: AppCompatButton
     private lateinit var btnToSharedPref: AppCompatButton
+    private lateinit var btnToSqlite: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         btnToSharedPref = findViewById(R.id.btn_to_shared_pref)
         btnToSharedPref.setOnClickListener { navigateToSharedPreferences() }
+
+        btnToSqlite = findViewById(R.id.btn_to_sqlite)
+        btnToSqlite.setOnClickListener { navigateToSQLite() }
     }
 
     private fun navigateToList() {
@@ -65,6 +70,12 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToSharedPreferences() {
         startActivity(
             Intent(this, SharedPreferencesActivity::class.java)
+        )
+    }
+
+    private fun navigateToSQLite() {
+        startActivity(
+            Intent(this, SQLiteActivity::class.java)
         )
     }
 }
