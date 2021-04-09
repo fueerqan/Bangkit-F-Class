@@ -6,6 +6,7 @@
     <string name="btn_network_label">Go To Network</string>
     <string name="btn_shared_pref_label">Go To Shared Preferences</string>
     <string name="btn_sqlite_label">Go To SQLite</string>
+    <string name="btn_content_provider_label">Go To Content Provider</string>
 
     <string name="run_background_task_handler_label">Run Background Task Handler</string>
     <string name="run_background_task_coroutine_label">Run Background Task Coroutine</string>
@@ -14,4 +15,5 @@
     <string name="login_label">Login</string>
     <string name="add_label">Add</string>
     <string name="list_books_in_database_label">List Books in Database</string>
+    <string name="get_phone_list_label">Get Phone List</string>
 </resources>

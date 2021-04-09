@@ -49,4 +49,11 @@
         android:text="@string/btn_sqlite_label"
         android:textAllCaps="false" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_to_content_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_content_provider_label"
+        android:textAllCaps="false" />
+
 </LinearLayout>
